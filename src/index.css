@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .button-primary {
-  @apply bg-yellow-500 py-2 px-4 hover:bg-yellow-400 rounded-md;
+  @apply bg-yellow-500 py-2 px-4 hover:bg-yellow-400 rounded-md cursor-pointer text-white;
 }
 .button-outline {
-  @apply py-2 px-4 hover:bg-yellow-500 rounded-md border border-white hover:border-yellow-500;
+  @apply py-2 px-4 hover:bg-yellow-500 rounded-md border border-white hover:border-yellow-500 cursor-pointer text-white;
 }
