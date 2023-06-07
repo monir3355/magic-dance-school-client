@@ -6,13 +6,13 @@ const Header = () => {
   const navItems = (
     <>
       <li>
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
       </li>
     </>
   );
   return (
-    <header className="bg-black/75 text-white">
-      <div className="navbar">
+    <header className=" text-white bg-black bg-opacity-75 fixed z-10 w-full">
+      <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

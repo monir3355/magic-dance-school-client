@@ -6,11 +6,11 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="footer p-10 container mx-auto">
+      <div className="footer py-10 container mx-auto">
         <div>
           <div>
             <Link to="/">
-              <img className="h-12" src={logo} alt="Logo" />
+              <img className="h-16" src={logo} alt="Logo" />
             </Link>
           </div>
           <p>
