@@ -1,8 +1,32 @@
 import React from "react";
 import logo from "./../../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you want Logout?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            Swal.fire("Logout!", "You are logout", "success");
+          })
+          .then((error) => {
+            console.log(error);
+          });
+      }
+    });
+  };
   const navItems = (
     <>
       <li>
@@ -46,9 +70,22 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="login">
-            <button className="button-outline">Login</button>
-          </Link>
+          {user ? (
+            <>
+              <label className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </label>
+              <button onClick={handleLogout} className="button-primary ml-4">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="login">
+              <button className="button-outline">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </header>

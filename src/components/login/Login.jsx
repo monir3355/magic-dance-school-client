@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import logo from "./../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import { FaEye } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [showPass, setShowPass] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    signIn(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <>
       <div className="bg-gray-300 px-4 lg:h-[100vh]">
@@ -49,13 +68,19 @@ const Login = () => {
                 <div>
                   <label htmlFor="Password">Password</label>
                 </div>
-                <input
-                  type="password"
-                  name="password"
-                  className="w-full py-2 rounded-md pl-4"
-                  placeholder="Password"
-                  {...register("password", { required: true })}
-                />
+                <div className="relative">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    className="w-full py-2 rounded-md pl-4"
+                    placeholder="Password"
+                    {...register("password", { required: true })}
+                  />
+                  <FaEye
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute right-4 top-3 cursor-pointer"
+                  />
+                </div>
                 {errors.password && (
                   <span className="text-red-600">
                     <small>Password is required</small>
@@ -76,6 +101,7 @@ const Login = () => {
           <div>
             <SocialLogin />
           </div>
+          <p className="text-red-500">{error}</p>
         </div>
       </div>
     </>

@@ -1,16 +1,71 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import logo from "./../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import { FaEye } from "react-icons/fa";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
+  const { createUser, UpdateUser, setPUpdate } = useAuth();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        setSuccess("Successfully account create");
+        UpdateUser(data.name, data.photo)
+          .then(() => {
+            console.log("Profile Updated");
+            setPUpdate(new Date().getTime());
+            navigate("/");
+            const users = {
+              name: data.name,
+              email: data.email,
+              password: data.password,
+              phone: data.phone,
+              gender: data.gender,
+              location: data.location,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(users),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  console.log(object);
+                  reset();
+                  Swal.fire(
+                    "Success!",
+                    "User created successfully.",
+                    "success"
+                  );
+                }
+              });
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <>
       <div className="bg-gray-300 px-4">
@@ -47,38 +102,86 @@ const Register = () => {
                 </div>
                 <div className="space-y-2 lg:w-1/2">
                   <div>
-                    <label htmlFor="photo">Photo URL</label>
+                    <label htmlFor="photo">Your Email</label>
                   </div>
                   <input
-                    type="url"
-                    name="photo"
+                    type="email"
+                    name="email"
                     className="w-full py-2 rounded-md pl-4"
-                    placeholder="photo"
-                    {...register("photo", { required: true })}
+                    placeholder="email"
+                    {...register("email", { required: true })}
                   />
-                  {errors.RecipeName && (
+                  {errors.email && (
                     <span className="text-red-600">
-                      <small>Recipe Name is required</small>
+                      <small>Email is required</small>
                     </span>
                   )}
                 </div>
               </div>
-              {/*Row 2 */}
+              {/* Row 2 */}
+              <div className="space-y-2">
+                <div>
+                  <label htmlFor="photo">Photo URL</label>
+                </div>
+                <input
+                  type="url"
+                  name="photo"
+                  className="w-full py-2 rounded-md pl-4"
+                  placeholder="photo"
+                  {...register("photo", { required: true })}
+                />
+                {errors.photo && (
+                  <span className="text-red-600">
+                    <small>Photo is required</small>
+                  </span>
+                )}
+              </div>
+              {/*Row 3 */}
               <div className="flex flex-col lg:flex-row gap-4">
                 <div className="space-y-2 lg:w-1/2">
                   <div>
                     <label htmlFor="Password">Password</label>
                   </div>
-                  <input
-                    type="password"
-                    name="password"
-                    className="w-full py-2 rounded-md pl-4"
-                    placeholder="Password"
-                    {...register("password", { required: true })}
-                  />
-                  {errors.password && (
+                  <div className="relative">
+                    <input
+                      type={showPass ? "text" : "password"}
+                      name="password"
+                      className="w-full py-2 rounded-md pl-4"
+                      placeholder="Password"
+                      {...register("password", {
+                        required: true,
+                        minLength: 6,
+                        maxLength: 15,
+                        pattern:
+                          /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                      })}
+                    />
+                    <FaEye
+                      onClick={() => setShowPass(!showPass)}
+                      className="absolute right-4 top-3 cursor-pointer"
+                    />
+                  </div>
+                  {errors.password?.type === "required" && (
                     <span className="text-red-600">
                       <small>Password is required</small>
+                    </span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="text-red-600">
+                      <small>Please Enter 6 or More Password</small>
+                    </span>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <span className="text-red-600">
+                      <small>Please Enter 15 or less Password</small>
+                    </span>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <span className="text-red-600">
+                      <small>
+                        Please Enter one uppercase, one lowercase, one number &
+                        special character{" "}
+                      </small>
                     </span>
                   )}
                 </div>
@@ -86,21 +189,51 @@ const Register = () => {
                   <div>
                     <label htmlFor="Password">Confirm Password</label>
                   </div>
-                  <input
-                    type="password"
-                    name="Confirm password"
-                    className="w-full py-2 rounded-md pl-4"
-                    placeholder="Confirm Password"
-                    {...register("confirmPassword", { required: true })}
-                  />
-                  {errors.confirmPassword && (
+                  <div className="relative">
+                    <input
+                      type={showPass ? "text" : "password"}
+                      name="Confirm password"
+                      className="w-full py-2 rounded-md pl-4"
+                      placeholder="Confirm Password"
+                      {...register("confirmPassword", {
+                        required: true,
+                        minLength: 6,
+                        maxLength: 15,
+                        pattern:
+                          /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                      })}
+                    />
+                    <FaEye
+                      onClick={() => setShowPass(!showPass)}
+                      className="absolute right-4 top-3 cursor-pointer"
+                    />
+                  </div>
+                  {errors.confirmPassword?.type === "required" && (
                     <span className="text-red-600">
                       <small>Confirm Password is required</small>
                     </span>
                   )}
+                  {errors.confirmPassword?.type === "minLength" && (
+                    <span className="text-red-600">
+                      <small>Please Enter 6 or More Password</small>
+                    </span>
+                  )}
+                  {errors.confirmPassword?.type === "maxLength" && (
+                    <span className="text-red-600">
+                      <small>Please Enter 15 or less Password</small>
+                    </span>
+                  )}
+                  {errors.confirmPassword?.type === "pattern" && (
+                    <span className="text-red-600">
+                      <small>
+                        Please Enter one uppercase, one lowercase, one number &
+                        special character{" "}
+                      </small>
+                    </span>
+                  )}
                 </div>
               </div>
-              {/* Row 5 */}
+              {/* Row 4 */}
               <div className="flex flex-col lg:flex-row gap-4">
                 <div className="space-y-2 lg:w-1/2">
                   <div>
@@ -130,7 +263,7 @@ const Register = () => {
                   />
                 </div>
               </div>
-              {/* Row 6 */}
+              {/* Row 5 */}
               <div className="space-y-2">
                 <div>
                   <label htmlFor="Location">Location</label>
@@ -157,6 +290,8 @@ const Register = () => {
           <div>
             <SocialLogin />
           </div>
+          <p className="text-red-500">{error}</p>
+          <p className="text-red-500">{success}</p>
         </div>
       </div>
     </>
