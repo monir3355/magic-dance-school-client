@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Header = () => {
+  const isAdmin = true;
   const { user, logOut } = useAuth();
   const handleLogout = () => {
     Swal.fire({
@@ -37,6 +38,15 @@ const Header = () => {
           Home
         </NavLink>
       </li>
+      {isAdmin ? (
+        <li>
+          <Link to="/dashboard/adminHome">Dashboard</Link>
+        </li>
+      ) : (
+        <li>
+          <Link to="/dashboard/userHome">Dashboard</Link>
+        </li>
+      )}
       <li>
         <NavLink
           to="/instructors"

@@ -36,7 +36,7 @@ const ClassCard = ({ singleClass }) => {
         </p>
         <div className="card-actions justify-end">
           <button disabled={disabled} className="btn button-primary">
-            Enroll Now
+            Select
           </button>
         </div>
       </div>
