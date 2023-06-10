@@ -22,7 +22,7 @@ const Instructors = () => {
           Our Instructors
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
-          {instructors.map((instructor) => (
+          {instructors?.map((instructor) => (
             <Instructor
               instructor={instructor}
               key={instructor._id}
