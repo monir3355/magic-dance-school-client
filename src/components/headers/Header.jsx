@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
@@ -30,7 +30,28 @@ const Header = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/instructors"
+          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+        >
+          Instructors
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/classes"
+          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+        >
+          Classes
+        </NavLink>
       </li>
     </>
   );
@@ -57,7 +78,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black/75 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
             >
               {navItems}
             </ul>

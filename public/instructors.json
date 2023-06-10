@@ -1,0 +1,100 @@
+[
+  {
+    "instructor_image": "https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "john@example.com",
+    "instructor_name": "John Smith",
+    "number_of_classes": 4,
+    "name_of_classes": ["Ballet", "Contemporary", "Hip Hop", "Latin"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "jane@example.com",
+    "instructor_name": "Jane Doe",
+    "number_of_classes": 3,
+    "name_of_classes": ["Jazz", "Tap", "Latin"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "michael@example.com",
+    "instructor_name": "Michael Johnson",
+    "number_of_classes": 2,
+    "name_of_classes": ["Salsa", "Latin"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/716411/pexels-photo-716411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "sara@example.com",
+    "instructor_name": "Sara Wilson",
+    "number_of_classes": 3,
+    "name_of_classes": ["Bollywood", "Folk Dance", "Belly Dance"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "david@example.com",
+    "instructor_name": "David Thompson",
+    "number_of_classes": 2,
+    "name_of_classes": ["Breakdance", "Street Dance"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor9@example.com",
+    "instructor_name": "Michelle Adams",
+    "number_of_classes": 3,
+    "name_of_classes": ["Psychology", "Sociology", "Counseling"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor10@example.com",
+    "instructor_name": "Robert Wilson",
+    "number_of_classes": 2,
+    "name_of_classes": ["Economics", "Finance"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor11@example.com",
+    "instructor_name": "Amy Turner",
+    "number_of_classes": 3,
+    "name_of_classes": ["Literature", "Writing", "Poetry"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor12@example.com",
+    "instructor_name": "Andrew Mitchell",
+    "number_of_classes": 3,
+    "name_of_classes": ["Chemistry", "Biology", "Physics"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor13@example.com",
+    "instructor_name": "Olivia Parker",
+    "number_of_classes": 2,
+    "name_of_classes": ["Dance", "Yoga"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor1@example.com",
+    "instructor_name": "John Doe",
+    "number_of_classes": 3,
+    "name_of_classes": ["Ballet", "Jazz", "Contemporary"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor2@example.com",
+    "instructor_name": "Jane Smith",
+    "number_of_classes": 2,
+    "name_of_classes": ["Hip Hop", "Tap"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor3@example.com",
+    "instructor_name": "Mike Johnson",
+    "number_of_classes": 2,
+    "name_of_classes": ["Salsa", "Ballroom"]
+  },
+  {
+    "instructor_image": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "email": "instructor4@example.com",
+    "instructor_name": "Sarah Brown",
+    "number_of_classes": 3,
+    "name_of_classes": ["Acrobatics", "Breakdance", "Pole Dance"]
+  }
+]
