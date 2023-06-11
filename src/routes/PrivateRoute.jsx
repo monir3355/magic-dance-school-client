@@ -9,7 +9,11 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
   if (loading) {
-    return <button className="btn loading">loading</button>;
+    return (
+      <div className="text-center mt-40">
+        <button className="btn loading">loading</button>
+      </div>
+    );
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };

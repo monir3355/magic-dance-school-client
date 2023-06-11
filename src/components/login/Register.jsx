@@ -48,7 +48,6 @@ const Register = () => {
               .then((res) => res.json())
               .then((data) => {
                 if (data.insertedId) {
-                  console.log(object);
                   reset();
                   Swal.fire(
                     "Success!",

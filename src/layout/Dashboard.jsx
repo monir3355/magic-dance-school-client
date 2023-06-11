@@ -3,9 +3,10 @@ import { FaHome, FaPersonBooth, FaUsers, FaWallet } from "react-icons/fa";
 import { TiContacts } from "react-icons/ti";
 import { SiGoogleclassroom } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -16,7 +17,7 @@ const Dashboard = () => {
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
-          Open drawer
+          Open Menu
         </label>
       </div>
       <div className="drawer-side">
