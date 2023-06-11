@@ -12,12 +12,12 @@ const Dashboard = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content relative">
         {/* Page content here */}
         <Outlet />
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-primary drawer-button lg:hidden absolute top-4 left-4"
         >
           Open Menu
         </label>
@@ -40,13 +40,24 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/allUsers"
+                  to="/dashboard/manageClasses"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <SiGoogleclassroom className="h-6 w-6" />
+                  <span className="uppercase">Manage Classes </span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/manageUsers"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"
                   }
                 >
                   <FaUsers className="h-6 w-6" />
-                  <span className="uppercase">All Users </span>
+                  <span className="uppercase">Manage Users </span>
                 </NavLink>
               </li>
             </>
@@ -76,13 +87,13 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/allUsers"
+                  to="/dashboard/myClasses"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"
                   }
                 >
                   <FaUsers className="h-6 w-6" />
-                  <span className="uppercase">Your all Class </span>
+                  <span className="uppercase">My Classes </span>
                 </NavLink>
               </li>
             </>

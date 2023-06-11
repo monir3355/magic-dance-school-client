@@ -1,15 +1,10 @@
 import React from "react";
 import Banner from "../../components/banner/Banner";
 import ClassCard from "./ClassCard";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import useClasses from "../../hooks/useClasses";
 
 const Classes = () => {
-  const [axiosSecure] = useAxiosSecure();
-  const { data: classes = [], refetch } = useQuery(["classes"], async () => {
-    const res = await axiosSecure.get("/classes");
-    return res.data;
-  });
+  const [classes] = useClasses();
   return (
     <div>
       <Banner>Classes</Banner>

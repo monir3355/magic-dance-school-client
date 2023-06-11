@@ -65,7 +65,9 @@ const AllUsers = () => {
   };
   return (
     <div className="md:w-5/6 mx-auto my-12">
-      <h2 className="text-3xl font-semibold">Total Users {users.length}</h2>
+      <h2 className="text-3xl font-semibold text-center">
+        Total Users {users.length}
+      </h2>
       <div className="overflow-x-auto w-full my-6">
         <table className="table w-full">
           {/* head */}
