@@ -10,7 +10,6 @@ const Classes = () => {
     const res = await axiosSecure.get("/classes");
     return res.data;
   });
-  console.log(classes);
   return (
     <div>
       <Banner>Classes</Banner>

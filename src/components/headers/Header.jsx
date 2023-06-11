@@ -3,9 +3,12 @@ import logo from "./../../assets/images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Header = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const { user, logOut } = useAuth();
   const handleLogout = () => {
     Swal.fire({
@@ -41,6 +44,10 @@ const Header = () => {
       {isAdmin ? (
         <li>
           <Link to="/dashboard/adminHome">Dashboard</Link>
+        </li>
+      ) : isInstructor ? (
+        <li>
+          <Link to="/dashboard/instructorHome">Dashboard</Link>
         </li>
       ) : (
         <li>

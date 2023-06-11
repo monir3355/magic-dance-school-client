@@ -65,6 +65,17 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
+                  to="/dashboard/addClass"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <SiGoogleclassroom className="h-6 w-6" />
+                  <span className="uppercase">Add a Class</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/dashboard/allUsers"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"

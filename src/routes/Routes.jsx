@@ -10,6 +10,10 @@ import AdminHome from "../pages/Dashboard/adminHome/AdminHome";
 import UserHome from "../pages/Dashboard/userHome/UserHome";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../pages/Dashboard/allUsers/AllUsers";
+import AdminPrivateRoute from "./AdminPrivateRoute";
+import InstructorPrivateRoute from "./InstructorPrivateRoute";
+import InstructorHome from "../pages/Dashboard/instructorHome/InstructorHome";
+import AddClass from "../pages/Dashboard/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -31,8 +35,34 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // Admin
       { path: "adminHome", element: <AdminHome></AdminHome> },
-      { path: "allUsers", element: <AllUsers /> },
+      {
+        path: "allUsers",
+        element: (
+          <AdminPrivateRoute>
+            <AllUsers />
+          </AdminPrivateRoute>
+        ),
+      },
+      // Instructors
+      {
+        path: "instructorHome",
+        element: (
+          <InstructorPrivateRoute>
+            <InstructorHome />
+          </InstructorPrivateRoute>
+        ),
+      },
+      {
+        path: "addClass",
+        element: (
+          <InstructorPrivateRoute>
+            <AddClass />
+          </InstructorPrivateRoute>
+        ),
+      },
+      // user
       { path: "userHome", element: <UserHome /> },
     ],
   },

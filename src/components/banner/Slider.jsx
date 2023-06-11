@@ -5,6 +5,7 @@ import sliderImg1 from "../../assets/images/slider/slider1.jpeg";
 import sliderImg2 from "../../assets/images/slider/slider2.jpeg";
 import sliderImg3 from "../../assets/images/slider/slider3.jpeg";
 import sliderImg4 from "../../assets/images/slider/slider4.jpeg";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   return (
@@ -23,8 +24,12 @@ const Slider = () => {
             leaf…melt into the moment that is available!
           </p>
           <div className="flex gap-4">
-            <button className="button-primary">Our Services</button>
-            <button className="button-outline">Get a quote</button>
+            <Link to="/classes">
+              <button className="button-primary">Our Classes</button>
+            </Link>
+            <Link to="/instructors">
+              <button className="button-outline">Our Instructors</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -42,8 +47,12 @@ const Slider = () => {
             leaf…melt into the moment that is available!
           </p>
           <div className="flex gap-4">
-            <button className="button-primary">Our Services</button>
-            <button className="button-outline">Get a quote</button>
+            <Link to="/classes">
+              <button className="button-primary">Our Classes</button>
+            </Link>
+            <Link to="/instructors">
+              <button className="button-outline">Our Instructors</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -61,8 +70,12 @@ const Slider = () => {
             leaf…melt into the moment that is available!
           </p>
           <div className="flex gap-4">
-            <button className="button-primary">Our Services</button>
-            <button className="button-outline">Get a quote</button>
+            <Link to="/classes">
+              <button className="button-primary">Our Classes</button>
+            </Link>
+            <Link to="/instructors">
+              <button className="button-outline">Our Instructors</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -80,8 +93,12 @@ const Slider = () => {
             leaf…melt into the moment that is available!
           </p>
           <div className="flex gap-4">
-            <button className="button-primary">Our Services</button>
-            <button className="button-outline">Get a quote</button>
+            <Link to="/classes">
+              <button className="button-primary">Our Classes</button>
+            </Link>
+            <Link to="/instructors">
+              <button className="button-outline">Our Instructors</button>
+            </Link>
           </div>
         </div>
       </div>

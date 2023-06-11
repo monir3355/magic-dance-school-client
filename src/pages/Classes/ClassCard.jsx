@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const ClassCard = ({ singleClass }) => {
-  const { image, class_name, instructor_name, available_seats, price } =
+  const { image, class_name, email, instructor_name, available_seats, price } =
     singleClass;
   const [disabled, setDisabled] = useState(false);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   useEffect(() => {
     if (available_seats <= 0) {
@@ -28,6 +32,9 @@ const ClassCard = ({ singleClass }) => {
           {instructor_name}
         </p>
         <p>
+          <span className="font-semibold">Instructor Email: </span> {email}
+        </p>
+        <p>
           <span className="font-semibold">Available Seats: </span>{" "}
           {available_seats}
         </p>
@@ -35,7 +42,10 @@ const ClassCard = ({ singleClass }) => {
           <span className="font-semibold">Price: </span> ${price}
         </p>
         <div className="card-actions justify-end">
-          <button disabled={disabled} className="btn button-primary">
+          <button
+            disabled={disabled || isAdmin || isInstructor}
+            className="btn button-primary"
+          >
             Select
           </button>
         </div>
