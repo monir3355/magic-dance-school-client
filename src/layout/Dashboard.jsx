@@ -4,9 +4,11 @@ import { TiContacts } from "react-icons/ti";
 import { SiGoogleclassroom } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -45,6 +47,31 @@ const Dashboard = () => {
                 >
                   <FaUsers className="h-6 w-6" />
                   <span className="uppercase">All Users </span>
+                </NavLink>
+              </li>
+            </>
+          ) : isInstructor ? (
+            <>
+              <li>
+                <NavLink
+                  to="/dashboard/instructorHome"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <FaHome className="h-6 w-6" />
+                  <span className="uppercase">Instructor Home</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/allUsers"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <FaUsers className="h-6 w-6" />
+                  <span className="uppercase">Your all Class </span>
                 </NavLink>
               </li>
             </>

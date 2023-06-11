@@ -290,7 +290,7 @@ const Register = () => {
             <SocialLogin />
           </div>
           <p className="text-red-500">{error}</p>
-          <p className="text-red-500">{success}</p>
+          <p className="text-green-500">{success}</p>
         </div>
       </div>
     </>
