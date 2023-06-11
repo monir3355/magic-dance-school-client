@@ -13,6 +13,7 @@ const ManageClassesCard = ({ singleClass, count, refetch }) => {
     available_seats,
     price,
     status,
+    feedback,
   } = singleClass;
 
   const handleApprove = (_id) => {
@@ -139,7 +140,6 @@ const ManageClassesCard = ({ singleClass, count, refetch }) => {
           </button>
         </th>
       </tr>
-      {/* modal */}
     </>
   );
 };
