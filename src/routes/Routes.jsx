@@ -18,7 +18,7 @@ import ManageClasses from "../pages/Dashboard/manageClasses/ManageClasses";
 import ClassesUpdate from "../pages/Dashboard/myClasses/ClassesUpdate";
 import UserHome from "../pages/Dashboard/student/UserHome.jsx/UserHome";
 import MySelectedClass from "../pages/Dashboard/student/mySelectedClass/MySelectedClass";
-import PaymentPage from "../pages/Dashboard/student/PaymentPage";
+import PaymentPage from "../pages/Dashboard/student/payment/PaymentPage";
 
 const router = createBrowserRouter([
   {
