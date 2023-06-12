@@ -51,7 +51,7 @@ const Header = () => {
         </li>
       ) : (
         <li>
-          <Link to="/dashboard/userHome">Dashboard</Link>
+          <Link to="/dashboard/studentHome">Dashboard</Link>
         </li>
       )}
       <li>
@@ -73,7 +73,7 @@ const Header = () => {
     </>
   );
   return (
-    <header className=" text-white bg-black bg-opacity-75 fixed z-10 w-full">
+    <header className=" text-white bg-black shadow-xl sticky top-0 z-10 w-full">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

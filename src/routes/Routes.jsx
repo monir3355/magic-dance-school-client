@@ -7,7 +7,6 @@ import Instructors from "../pages/instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import Dashboard from "../layout/Dashboard";
 import AdminHome from "../pages/Dashboard/adminHome/AdminHome";
-import UserHome from "../pages/Dashboard/userHome/UserHome";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../pages/Dashboard/allUsers/AllUsers";
 import AdminPrivateRoute from "./AdminPrivateRoute";
@@ -17,6 +16,9 @@ import AddClass from "../pages/Dashboard/AddClass";
 import MyClasses from "../pages/Dashboard/myClasses/MyClasses";
 import ManageClasses from "../pages/Dashboard/manageClasses/ManageClasses";
 import ClassesUpdate from "../pages/Dashboard/myClasses/ClassesUpdate";
+import UserHome from "../pages/Dashboard/student/UserHome.jsx/UserHome";
+import MySelectedClass from "../pages/Dashboard/student/mySelectedClass/MySelectedClass";
+import PaymentPage from "../pages/Dashboard/student/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -98,8 +100,15 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/classes/${params.id}`),
       },
-      // user
-      { path: "userHome", element: <UserHome /> },
+      // student
+      { path: "studentHome", element: <UserHome /> },
+      { path: "selectedClass", element: <MySelectedClass /> },
+      {
+        path: "payment/:id",
+        element: <PaymentPage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/mySelectedClasses/${params.id}`),
+      },
     ],
   },
 ]);

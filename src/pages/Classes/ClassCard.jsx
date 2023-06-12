@@ -1,19 +1,49 @@
 import React, { useEffect, useState } from "react";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ClassCard = ({ singleClass }) => {
-  const { image, class_name, email, instructor_name, available_seats, price } =
-    singleClass;
+  const {
+    _id,
+    image,
+    class_name,
+    email,
+    instructor_name,
+    available_seats,
+    price,
+  } = singleClass;
   const [disabled, setDisabled] = useState(false);
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+  const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
     if (available_seats <= 0) {
       setDisabled(true);
     }
   }, []);
+  const handleSelect = (_id) => {
+    const savedClass = {
+      classId: _id,
+      image,
+      class_name,
+      available_seats,
+      price,
+    };
+    axiosSecure.post("/selectedClasses", savedClass).then((data) => {
+      if (data.data.insertedId) {
+        setDisabled(true);
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully selected a class",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+      }
+    });
+  };
   return (
     <div
       className={`${
@@ -43,6 +73,7 @@ const ClassCard = ({ singleClass }) => {
         </p>
         <div className="card-actions justify-end">
           <button
+            onClick={() => handleSelect(_id)}
             disabled={disabled || isAdmin || isInstructor}
             className="btn button-primary"
           >

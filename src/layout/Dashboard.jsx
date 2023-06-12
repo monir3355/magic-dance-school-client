@@ -101,13 +101,35 @@ const Dashboard = () => {
             <>
               <li>
                 <NavLink
-                  to="/dashboard/userHome"
+                  to="/dashboard/studentHome"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-black"
                   }
                 >
                   <FaHome className="h-6 w-6" />
-                  <span className="uppercase">User Home</span>
+                  <span className="uppercase">Student Home</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/selectedClass"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <SiGoogleclassroom className="h-6 w-6" />
+                  <span className="uppercase">My Selected Classes</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/enrolledClass"
+                  className={({ isActive }) =>
+                    isActive ? "text-white" : "text-black"
+                  }
+                >
+                  <SiGoogleclassroom className="h-6 w-6" />
+                  <span className="uppercase">My Enrolled Classes</span>
                 </NavLink>
               </li>
               <li>

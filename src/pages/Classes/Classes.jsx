@@ -1,10 +1,10 @@
 import React from "react";
 import Banner from "../../components/banner/Banner";
 import ClassCard from "./ClassCard";
-import useClasses from "../../hooks/useClasses";
+import useApprovedClasses from "../../hooks/useApprovedClasses";
 
 const Classes = () => {
-  const [classes] = useClasses();
+  const [classes] = useApprovedClasses();
   return (
     <div>
       <Banner>Classes</Banner>
