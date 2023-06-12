@@ -16,6 +16,7 @@ import InstructorHome from "../pages/Dashboard/instructorHome/InstructorHome";
 import AddClass from "../pages/Dashboard/AddClass";
 import MyClasses from "../pages/Dashboard/myClasses/MyClasses";
 import ManageClasses from "../pages/Dashboard/manageClasses/ManageClasses";
+import ClassesUpdate from "../pages/Dashboard/myClasses/ClassesUpdate";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,16 @@ const router = createBrowserRouter([
             <MyClasses />
           </InstructorPrivateRoute>
         ),
+      },
+      {
+        path: "classesUpdate/:id",
+        element: (
+          <InstructorPrivateRoute>
+            <ClassesUpdate />
+          </InstructorPrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/classes/${params.id}`),
       },
       // user
       { path: "userHome", element: <UserHome /> },

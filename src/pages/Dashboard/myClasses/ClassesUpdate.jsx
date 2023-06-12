@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useParams } from "react-router-dom";
+import useMyClasses from "../../../hooks/useMyClasses";
 
 const image_hosting_token = import.meta.env.VITE_img_api;
-const AddClass = () => {
+const ClassesUpdate = () => {
+  const [classes] = useMyClasses();
+  const [singleClass, setSingleClass] = useState([]);
+  const { id } = useParams();
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
+  useEffect(() => {
+    const myClass = classes.find((cls) => cls._id === id);
+    setSingleClass(myClass);
+  }, [classes]);
+  // console.log(singleClass);
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
   const {
     register,
@@ -28,30 +38,22 @@ const AddClass = () => {
       .then((imgData) => {
         if (imgData.success) {
           const imgURL = imgData.data.display_url;
-          const {
-            class_name,
-            instructor_name,
-            available_seats,
-            email,
-            price,
-            details,
-          } = data;
+          const { class_name, available_seats, price, details } = data;
           const newClass = {
             class_name,
             image: imgURL,
-            instructor_name,
-            email,
             available_seats: parseInt(available_seats),
             price: parseInt(price),
             details,
             status: "pending",
           };
-          axiosSecure.post("/classes", newClass).then((data) => {
-            if (data.data.insertedId) {
+          axiosSecure.patch(`/classes/${id}`, newClass).then((data) => {
+            // console.log(data.data);
+            if (data.data.modifiedCount > 0) {
               reset();
               Swal.fire({
                 title: "Success!",
-                text: "You have successfully add a class",
+                text: "You have successfully Update a class",
                 icon: "success",
                 confirmButtonText: "Cool",
               });
@@ -62,7 +64,9 @@ const AddClass = () => {
   };
   return (
     <div>
-      <h2 className="text-4xl font-semibold mt-6 text-center">Add a Class</h2>
+      <h2 className="text-4xl font-semibold mt-6 text-center">
+        Update a class
+      </h2>
       <div className="md:w-5/6 bg-gray-300 p-6 md:p-12 mx-auto rounded-lg my-6">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-4">
@@ -74,6 +78,7 @@ const AddClass = () => {
                 </div>
                 <input
                   type="text"
+                  defaultValue={singleClass?.class_name}
                   name="ClassName"
                   className="w-full py-2 rounded-md pl-4"
                   placeholder="Class name"
@@ -135,6 +140,7 @@ const AddClass = () => {
                 </div>
                 <input
                   type="text"
+                  defaultValue={singleClass?.available_seats}
                   name="AvailableSeats"
                   className="w-full py-2 rounded-md pl-4"
                   placeholder="Available Seats"
@@ -152,6 +158,7 @@ const AddClass = () => {
                 </div>
                 <input
                   type="text"
+                  defaultValue={singleClass?.price}
                   name="Price"
                   className="w-full py-2 rounded-md pl-4"
                   placeholder="Price"
@@ -171,6 +178,7 @@ const AddClass = () => {
               </div>
               <textarea
                 type="text"
+                defaultValue={singleClass?.details}
                 name="ClassDetails"
                 id=""
                 cols="30"
@@ -188,7 +196,7 @@ const AddClass = () => {
             {/* Button */}
             <div>
               <input
-                value="Add Class"
+                value="Update Class"
                 type="submit"
                 className="btn btn-primary"
               />
@@ -199,5 +207,4 @@ const AddClass = () => {
     </div>
   );
 };
-
-export default AddClass;
+export default ClassesUpdate;

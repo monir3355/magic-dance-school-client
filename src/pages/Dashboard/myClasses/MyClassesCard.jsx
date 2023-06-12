@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyClassesCard = ({ singleClass, count }) => {
   const { _id, image, class_name, available_seats, price, status, feedback } =
@@ -34,7 +35,9 @@ const MyClassesCard = ({ singleClass, count }) => {
           <p>{status}</p>
         </td>
         <th>
-          <button className="btn btn-primary btn-sm mr-3">update</button>
+          <Link to={`/dashboard/classesUpdate/${_id}`}>
+            <button className="btn btn-primary btn-sm mr-3">update</button>
+          </Link>
         </th>
       </tr>
     </>

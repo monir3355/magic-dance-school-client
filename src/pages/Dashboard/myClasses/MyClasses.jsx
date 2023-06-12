@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import MyClassesCard from "./MyClassesCard";
+import useMyClasses from "../../../hooks/useMyClasses";
 
 const MyClasses = () => {
-  const { user } = useAuth();
-  const [classes, setClasses] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/classes/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setClasses(data));
-  }, [user]);
+  const [classes] = useMyClasses();
   return (
     <div>
       <h2 className="text-4xl font-semibold mt-6 mb-4 text-center">

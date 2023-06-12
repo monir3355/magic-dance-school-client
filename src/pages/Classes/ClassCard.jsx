@@ -21,7 +21,7 @@ const ClassCard = ({ singleClass }) => {
       } card card-compact shadow-xl`}
     >
       <figure>
-        <img src={image} alt="" />
+        <img className="h-60 w-full" src={image} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
