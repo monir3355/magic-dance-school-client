@@ -37,6 +37,7 @@ const ClassCard = ({ singleClass }) => {
       classId: _id,
       image,
       class_name,
+      instructor_name,
       available_seats,
       price,
     };

@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="footer py-10 container mx-auto">
+      <div className="footer py-10 px-4 md:px-0 container mx-auto">
         <div>
           <div>
             <Link to="/">
@@ -45,6 +45,16 @@ const Footer = () => {
           <span className="footer-title">SERVICES</span>
           <ul>
             <li>
+              <Link className="link link-hover" to="/instructors">
+                Instructors
+              </Link>
+            </li>
+            <li>
+              <Link className="link link-hover" to="/classes">
+                Classes
+              </Link>
+            </li>
+            <li>
               <Link className="link link-hover" to="/register">
                 Register
               </Link>
@@ -76,7 +86,7 @@ const Footer = () => {
                 placeholder="username@gmail.com"
                 className="input input-bordered w-full pr-16"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+              <button className="btn btn-danger absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>

@@ -79,7 +79,8 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              <th>ACTION</th>
+              <th>Make</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -96,8 +97,13 @@ const AllUsers = () => {
                   <p>{user.email}</p>
                 </td>
                 <td>
+                  <p>{user?.role}</p>
+                </td>
+                <td>
                   {user.role === "admin" ? (
-                    <span className="text-green-500">Admin</span>
+                    <button disabled className="btn btn-ghost btn-xs">
+                      Admin
+                    </button>
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
@@ -107,7 +113,9 @@ const AllUsers = () => {
                     </button>
                   )}
                   {user.role === "instructor" ? (
-                    <span className="text-green-500">Instructor</span>
+                    <button disabled className="btn btn-ghost btn-xs">
+                      Instructor
+                    </button>
                   ) : (
                     <button
                       onClick={() => handleMakeInstructor(user)}

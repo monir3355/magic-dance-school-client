@@ -31,12 +31,14 @@ const Register = () => {
             setPUpdate(new Date().getTime());
             navigate("/");
             const users = {
+              image: data.photo,
               name: data.name,
               email: data.email,
               password: data.password,
               phone: data.phone,
               gender: data.gender,
               location: data.location,
+              role: "student",
             };
             fetch("http://localhost:5000/users", {
               method: "POST",

@@ -12,10 +12,12 @@ const SocialLogin = () => {
     googleSignIn()
       .then((result) => {
         const currentUSer = result.user;
-        console.log(currentUSer);
+        // console.log(currentUSer);
         const savedUser = {
+          image: currentUSer.photoURL,
           name: currentUSer.displayName,
           email: currentUSer.email,
+          role: "student",
         };
         fetch("http://localhost:5000/users", {
           method: "POST",

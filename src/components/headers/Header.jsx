@@ -36,28 +36,63 @@ const Header = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 px-4 py-1 rounded-lg"
+          }
         >
           Home
         </NavLink>
       </li>
       {isAdmin ? (
         <li>
-          <Link to="/dashboard/adminHome">Dashboard</Link>
+          <NavLink
+            to="/dashboard/adminHome"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 px-4 py-1 rounded-lg"
+            }
+          >
+            Dashboard
+          </NavLink>
         </li>
       ) : isInstructor ? (
         <li>
-          <Link to="/dashboard/instructorHome">Dashboard</Link>
+          <NavLink
+            to="/dashboard/instructorHome"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 px-4 py-1 rounded-lg"
+            }
+          >
+            Dashboard
+          </NavLink>
         </li>
       ) : (
         <li>
-          <Link to="/dashboard/studentHome">Dashboard</Link>
+          <NavLink
+            to="/dashboard/studentHome"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 px-4 py-1 rounded-lg"
+            }
+          >
+            Dashboard
+          </NavLink>
         </li>
       )}
       <li>
         <NavLink
           to="/instructors"
-          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 px-4 py-1 rounded-lg"
+          }
         >
           Instructors
         </NavLink>
@@ -65,7 +100,11 @@ const Header = () => {
       <li>
         <NavLink
           to="/classes"
-          className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 px-4 py-1 rounded-lg"
+          }
         >
           Classes
         </NavLink>
@@ -95,7 +134,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
+              className="flex flex-col gap-4 menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
             >
               {navItems}
             </ul>
@@ -105,7 +144,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navItems}</ul>
+          <ul className="flex gap-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
