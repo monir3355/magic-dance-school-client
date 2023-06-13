@@ -71,6 +71,7 @@ const CheckoutForm = ({ price, selectedClass }) => {
       setTransactionId(paymentIntent.id);
       // const transactionId = paymentIntent.id;
       const payment = {
+        image: selectedClass.image,
         class_name: selectedClass.class_name,
         available_seats: selectedClass.available_seats,
         name: user?.displayName,
@@ -78,7 +79,8 @@ const CheckoutForm = ({ price, selectedClass }) => {
         date: new Date(),
         transactionId: paymentIntent.id,
         price,
-        classesId: selectedClass._id,
+        classesId: selectedClass._id, // my selected class id
+        classClassId: selectedClass.classId, // when student selected class from class page id
       };
       axiosSecure.post("/payments", payment).then((res) => {
         // console.log("resss", res.data);

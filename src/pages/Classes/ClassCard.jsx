@@ -3,8 +3,12 @@ import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const ClassCard = ({ singleClass }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const {
     _id,
     image,
@@ -25,6 +29,10 @@ const ClassCard = ({ singleClass }) => {
     }
   }, []);
   const handleSelect = (_id) => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     const savedClass = {
       classId: _id,
       image,
