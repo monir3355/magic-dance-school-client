@@ -19,6 +19,7 @@ import ClassesUpdate from "../pages/Dashboard/myClasses/ClassesUpdate";
 import UserHome from "../pages/Dashboard/student/UserHome.jsx/UserHome";
 import MySelectedClass from "../pages/Dashboard/student/mySelectedClass/MySelectedClass";
 import PaymentPage from "../pages/Dashboard/student/payment/PaymentPage";
+import PaymentHistory from "../pages/Dashboard/paymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -109,6 +110,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/mySelectedClasses/${params.id}`),
       },
+      { path: "paymentHistory", element: <PaymentHistory /> },
     ],
   },
 ]);
