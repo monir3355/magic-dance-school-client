@@ -21,6 +21,7 @@ const MyClasses = () => {
                 </label>
               </th>
               <th>Classes Info</th>
+              <th>Enrolled</th>
               <th>Admin Feedback</th>
               <th>Status</th>
               <th>Action</th>

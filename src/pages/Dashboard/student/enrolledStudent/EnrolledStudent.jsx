@@ -5,8 +5,8 @@ import EnrolledCard from "./EnrolledCard";
 const EnrolledStudent = () => {
   const [payments] = usePayment();
   return (
-    <div>
-      <h2 className="text-4xl font-semibold mt-6 mb-4 text-center">
+    <div className="my-12">
+      <h2 className="text-3xl font-semibold mt-6 mb-4 text-center">
         My Total Enrolled classes: {payments.length}
       </h2>
       <div className="overflow-x-auto w-full md:w-5/6 mx-auto mb-6">

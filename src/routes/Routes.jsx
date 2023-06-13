@@ -21,10 +21,12 @@ import MySelectedClass from "../pages/Dashboard/student/mySelectedClass/MySelect
 import PaymentPage from "../pages/Dashboard/student/payment/PaymentPage";
 import PaymentHistory from "../pages/Dashboard/paymentHistory/PaymentHistory";
 import EnrolledStudent from "../pages/Dashboard/student/enrolledStudent/EnrolledStudent";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     element: <Main />,
     children: [
       { path: "/", element: <Home /> },

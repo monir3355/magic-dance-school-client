@@ -1,12 +1,17 @@
 import React from "react";
 import Slider from "../../../components/banner/Slider";
+import PopularClasses from "../popularClass/PopularClasses";
+import PopularInstructors from "./popularInstructor/PopularInstructors";
+import WhoWe from "./whoWe/WhoWe";
 
 const Home = () => {
   return (
     <div>
       <Slider />
-      <div className="container mx-auto">
-        <h2>Home</h2>
+      <div className="container mx-auto px-4 md:px-0">
+        <PopularClasses />
+        <PopularInstructors />
+        <WhoWe />
       </div>
     </div>
   );

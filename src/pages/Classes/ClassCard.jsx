@@ -17,6 +17,7 @@ const ClassCard = ({ singleClass }) => {
     instructor_name,
     available_seats,
     price,
+    enrolled_students,
   } = singleClass;
   const [disabled, setDisabled] = useState(false);
   const [isAdmin] = useAdmin();
@@ -78,13 +79,17 @@ const ClassCard = ({ singleClass }) => {
           {available_seats}
         </p>
         <p>
+          <span className="font-semibold">Enrolled Students: </span>{" "}
+          {enrolled_students}
+        </p>
+        <p>
           <span className="font-semibold">Price: </span> ${price}
         </p>
         <div className="card-actions justify-end">
           <button
             onClick={() => handleSelect(_id)}
             disabled={disabled || isAdmin || isInstructor}
-            className="btn button-primary"
+            className="btn button-primary btn-sm"
           >
             Select
           </button>

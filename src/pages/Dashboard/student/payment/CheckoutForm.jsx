@@ -73,7 +73,7 @@ const CheckoutForm = ({ price, selectedClass }) => {
       const payment = {
         image: selectedClass.image,
         class_name: selectedClass.class_name,
-        instructor_name,
+        instructor_name: selectedClass.instructor_name,
         available_seats: selectedClass.available_seats,
         name: user?.displayName,
         email: user?.email,

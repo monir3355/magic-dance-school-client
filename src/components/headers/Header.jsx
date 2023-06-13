@@ -38,8 +38,8 @@ const Header = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 px-4 py-1 rounded-lg"
+              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
           }
         >
           Home
@@ -51,8 +51,8 @@ const Header = () => {
             to="/dashboard/adminHome"
             className={({ isActive }) =>
               isActive
-                ? "border-b-2 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 px-4 py-1 rounded-lg"
+                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
             }
           >
             Dashboard
@@ -64,8 +64,8 @@ const Header = () => {
             to="/dashboard/instructorHome"
             className={({ isActive }) =>
               isActive
-                ? "border-b-2 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 px-4 py-1 rounded-lg"
+                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
             }
           >
             Dashboard
@@ -77,8 +77,8 @@ const Header = () => {
             to="/dashboard/studentHome"
             className={({ isActive }) =>
               isActive
-                ? "border-b-2 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 px-4 py-1 rounded-lg"
+                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
             }
           >
             Dashboard
@@ -90,8 +90,8 @@ const Header = () => {
           to="/instructors"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 px-4 py-1 rounded-lg"
+              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
           }
         >
           Instructors
@@ -102,8 +102,8 @@ const Header = () => {
           to="/classes"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 px-4 py-1 rounded-lg"
+              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
+              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
           }
         >
           Classes

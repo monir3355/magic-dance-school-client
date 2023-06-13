@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyClassesCard = ({ singleClass, count }) => {
-  const { _id, image, class_name, available_seats, price, status, feedback } =
-    singleClass;
+  const {
+    _id,
+    image,
+    class_name,
+    available_seats,
+    price,
+    status,
+    feedback,
+    enrolled_students,
+  } = singleClass;
   return (
     <>
       <tr>
@@ -15,7 +23,7 @@ const MyClassesCard = ({ singleClass, count }) => {
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
-              <div className="w-40 h-28">
+              <div className="w-24 h-16">
                 <img className="rounded-lg" src={image} alt="Toy" />
               </div>
             </div>
@@ -27,6 +35,9 @@ const MyClassesCard = ({ singleClass, count }) => {
               </div>
             </div>
           </div>
+        </td>
+        <td>
+          <p>{enrolled_students} Students</p>
         </td>
         <td>
           <p>{feedback}</p>
