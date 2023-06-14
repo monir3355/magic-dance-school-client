@@ -19,7 +19,7 @@ const SocialLogin = () => {
           email: currentUSer.email,
           role: "student",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://magic-dance-arts-server.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

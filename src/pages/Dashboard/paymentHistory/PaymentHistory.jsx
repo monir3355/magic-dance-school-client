@@ -1,8 +1,10 @@
 import React from "react";
 import usePayment from "../../../hooks/usePayment";
 import HistoryRow from "./HistoryRow";
+import useTitle from "../../../hooks/useTitle";
 
 const PaymentHistory = () => {
+  useTitle("Payment History");
   const payments = usePayment();
   // console.log(payments);
   return (

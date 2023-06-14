@@ -6,9 +6,11 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import useMyClasses from "../../../hooks/useMyClasses";
+import useTitle from "../../../hooks/useTitle";
 
 const image_hosting_token = import.meta.env.VITE_img_api;
 const ClassesUpdate = () => {
+  useTitle("Classes Update");
   const [classes] = useMyClasses();
   const [singleClass, setSingleClass] = useState([]);
   const { id } = useParams();

@@ -3,8 +3,10 @@ import Banner from "../../components/banner/Banner";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Instructor from "./Instructor";
+import useTitle from "../../hooks/useTitle";
 
 const Instructors = () => {
+  useTitle("Instructors");
   const [axiosSecure] = useAxiosSecure();
   const { data: instructors = [], refetch } = useQuery(
     ["instructors"],

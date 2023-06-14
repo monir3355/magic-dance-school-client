@@ -7,8 +7,10 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register");
   const [showPass, setShowPass] = useState(false);
   const { createUser, UpdateUser, setPUpdate } = useAuth();
   const [error, setError] = useState("");
@@ -40,7 +42,7 @@ const Register = () => {
               location: data.location,
               role: "student",
             };
-            fetch("http://localhost:5000/users", {
+            fetch("https://magic-dance-arts-server.vercel.app/users", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import SelectedCard from "./SelectedCard";
+import useTitle from "../../../../hooks/useTitle";
 
 const MySelectedClass = () => {
+  useTitle("Selected Class");
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery(["classes"], async () => {
     const res = await axiosSecure.get("/selectedClasses");

@@ -1,8 +1,10 @@
 import React from "react";
 import useClasses from "../../../hooks/useClasses";
 import ManageClassesCard from "./ManageClassesCard";
+import useTitle from "../../../hooks/useTitle";
 
 const ManageClasses = () => {
+  useTitle("Manage Classes");
   const [classes, refetch] = useClasses();
   return (
     <div>

@@ -6,7 +6,7 @@ const usePayment = () => {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments/${user?.email}`)
+    fetch(`https://magic-dance-arts-server.vercel.app/payments/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setPayments(data));
   }, [user]);

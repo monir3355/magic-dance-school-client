@@ -1,9 +1,36 @@
-import React from "react";
+import anime from "animejs";
+import React, { useEffect, useRef, useState } from "react";
 
 const Instructor = ({ instructor }) => {
+  const cardRef = useRef(null);
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const cardPosition = cardRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (cardPosition.top < windowHeight && !animated) {
+        anime({
+          targets: cardRef.current,
+          opacity: [0, 1],
+          translateY: [100, 0],
+          duration: 1000,
+          easing: "easeOutSine",
+        });
+        setAnimated(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [animated]);
   const { name, email, image } = instructor;
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div ref={cardRef} className="card card-compact bg-base-100 shadow-xl">
       <figure>
         <img className="h-64 w-full" src={image} alt="" />
       </figure>

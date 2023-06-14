@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import MyClassesCard from "./MyClassesCard";
 import useMyClasses from "../../../hooks/useMyClasses";
+import useTitle from "../../../hooks/useTitle";
 
 const MyClasses = () => {
+  useTitle("My Classes");
   const [classes] = useMyClasses();
   return (
     <div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import sliderImg1 from "../../assets/images/slider/slider1.jpeg";
@@ -6,14 +6,29 @@ import sliderImg2 from "../../assets/images/slider/slider2.jpeg";
 import sliderImg3 from "../../assets/images/slider/slider3.jpeg";
 import sliderImg4 from "../../assets/images/slider/slider4.jpeg";
 import { Link } from "react-router-dom";
+import anime from "animejs";
 
 const Slider = () => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    anime({
+      targets: textRef.current,
+      translateX: [-200, 0],
+      opacity: [0, 1],
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+  }, []);
   return (
     <Carousel className="text-center">
       <div className="h-[500px] xl:h-[600px] relative">
         <img className="h-full" src={sliderImg1} />
         <p className="inset-0 absolute bg-black/60"></p>
-        <div className="px-4 flex flex-col items-center justify-center inset-0 absolute text-white md:w-4/6 mx-auto space-y-4">
+        <div
+          ref={textRef}
+          className="px-4 flex flex-col items-center justify-center inset-0 absolute text-white md:w-4/6 mx-auto space-y-4"
+        >
           <h2 className=" text-4xl font-bold">
             LEADING TO THE DANCE OF HEART...
           </h2>

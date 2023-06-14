@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const image_hosting_token = import.meta.env.VITE_img_api;
 const AddClass = () => {
+  useTitle("Add a Class");
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;

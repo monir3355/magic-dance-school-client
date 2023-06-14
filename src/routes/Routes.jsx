@@ -102,7 +102,9 @@ const router = createBrowserRouter([
           </InstructorPrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/classes/${params.id}`),
+          fetch(
+            `https://magic-dance-arts-server.vercel.app/classes/${params.id}`
+          ),
       },
       // student
       { path: "studentHome", element: <UserHome /> },
@@ -111,7 +113,9 @@ const router = createBrowserRouter([
         path: "payment/:id",
         element: <PaymentPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/mySelectedClasses/${params.id}`),
+          fetch(
+            `https://magic-dance-arts-server.vercel.app/mySelectedClasses/${params.id}`
+          ),
       },
       { path: "enrolledClass", element: <EnrolledStudent /> },
       { path: "paymentHistory", element: <PaymentHistory /> },

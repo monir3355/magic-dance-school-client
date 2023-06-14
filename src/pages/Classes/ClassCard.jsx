@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import anime from "animejs";
 
 const ClassCard = ({ singleClass }) => {
   const { user } = useAuth();
@@ -54,8 +55,37 @@ const ClassCard = ({ singleClass }) => {
       }
     });
   };
+
+  // Animate card
+  const cardRef = useRef(null);
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const cardPosition = cardRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (cardPosition.top < windowHeight && !animated) {
+        anime({
+          targets: cardRef.current,
+          opacity: [0, 1],
+          translateY: [100, 0],
+          duration: 1000,
+          easing: "easeOutSine",
+        });
+        setAnimated(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [animated]);
   return (
     <div
+      ref={cardRef}
       className={`${
         available_seats > 0 ? "bg-base-100" : "bg-red-500 text-white"
       } card card-compact shadow-xl`}

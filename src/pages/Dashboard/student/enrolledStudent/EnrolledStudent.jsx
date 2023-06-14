@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import usePayment from "../../../../hooks/usePayment";
 import EnrolledCard from "./EnrolledCard";
+import useTitle from "../../../../hooks/useTitle";
 
 const EnrolledStudent = () => {
+  useTitle("Enrolled Class");
   const [payments] = usePayment();
   return (
     <div className="my-12">

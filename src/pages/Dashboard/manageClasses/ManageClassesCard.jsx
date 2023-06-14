@@ -17,9 +17,12 @@ const ManageClassesCard = ({ singleClass, count, refetch }) => {
   } = singleClass;
 
   const handleApprove = (_id) => {
-    fetch(`http://localhost:5000/classes/approved/${_id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://magic-dance-arts-server.vercel.app/classes/approved/${_id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -29,7 +32,7 @@ const ManageClassesCard = ({ singleClass, count, refetch }) => {
       });
   };
   const handleDenied = (_id) => {
-    fetch(`http://localhost:5000/classes/denied/${_id}`, {
+    fetch(`https://magic-dance-arts-server.vercel.app/classes/denied/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -57,13 +60,16 @@ const ManageClassesCard = ({ singleClass, count, refetch }) => {
         feedback: feedbackMessage,
       };
 
-      fetch(`http://localhost:5000/classes/feedback/${_id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(feedbackData),
-      })
+      fetch(
+        `https://magic-dance-arts-server.vercel.app/classes/feedback/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(feedbackData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {

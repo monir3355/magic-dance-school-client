@@ -2,8 +2,10 @@ import React from "react";
 import studentImg from "./../../../../assets/images/panel/student.png";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
+import useTitle from "../../../../hooks/useTitle";
 
 const UserHome = () => {
+  useTitle("Student Home");
   // const navigate = useNavigate();
   // const { user } = useAuth();
   // if (!user) {

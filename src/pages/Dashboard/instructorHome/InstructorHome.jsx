@@ -1,7 +1,9 @@
 import React from "react";
 import instructorImg from "../../../assets/images/panel/instructor.jpg";
+import useTitle from "../../../hooks/useTitle";
 
 const InstructorHome = () => {
+  useTitle("Instructor Home");
   return (
     <div className="my-4">
       <img className="w-1/2 mx-auto" src={instructorImg} alt="" />
