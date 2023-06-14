@@ -1,5 +1,6 @@
 import anime from "animejs";
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Instructor = ({ instructor }) => {
   const cardRef = useRef(null);
@@ -28,7 +29,7 @@ const Instructor = ({ instructor }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [animated]);
-  const { name, email, image } = instructor;
+  const { _id, name, email, image } = instructor;
   return (
     <div ref={cardRef} className="card card-compact bg-base-100 shadow-xl">
       <figure>
@@ -42,7 +43,9 @@ const Instructor = ({ instructor }) => {
           <span className="font-semibold">Email:</span> {email}
         </p>
         <div className="card-actions justify-end">
-          <button className="button-primary">View Details</button>
+          <Link to={`/instructorDetail/${_id}`}>
+            <button className="button-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
