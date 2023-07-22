@@ -40,10 +40,14 @@ const Slider = () => {
           </p>
           <div className="flex gap-4">
             <Link to="/classes">
-              <button className="button-primary">Our Classes</button>
+              <button className="buttonBorder">
+                <span>Our Classes</span> <i></i>
+              </button>
             </Link>
             <Link to="/instructors">
-              <button className="button-outline">Our Instructors</button>
+              <button className="buttonBorder">
+                <span>Our Instructors</span> <i></i>
+              </button>
             </Link>
           </div>
         </div>
@@ -63,10 +67,14 @@ const Slider = () => {
           </p>
           <div className="flex gap-4">
             <Link to="/classes">
-              <button className="button-primary">Our Classes</button>
+              <button className="buttonBorder">
+                <span>Our Classes</span> <i></i>
+              </button>
             </Link>
             <Link to="/instructors">
-              <button className="button-outline">Our Instructors</button>
+              <button className="buttonBorder">
+                <span>Our Instructors</span> <i></i>
+              </button>
             </Link>
           </div>
         </div>
@@ -86,10 +94,14 @@ const Slider = () => {
           </p>
           <div className="flex gap-4">
             <Link to="/classes">
-              <button className="button-primary">Our Classes</button>
+              <button className="buttonBorder">
+                <span>Our Classes</span> <i></i>
+              </button>
             </Link>
             <Link to="/instructors">
-              <button className="button-outline">Our Instructors</button>
+              <button className="buttonBorder">
+                <span>Our Instructors</span> <i></i>
+              </button>
             </Link>
           </div>
         </div>
@@ -109,10 +121,14 @@ const Slider = () => {
           </p>
           <div className="flex gap-4">
             <Link to="/classes">
-              <button className="button-primary">Our Classes</button>
+              <button className="buttonBorder">
+                <span>Our Classes</span> <i></i>
+              </button>
             </Link>
             <Link to="/instructors">
-              <button className="button-outline">Our Instructors</button>
+              <button className="buttonBorder">
+                <span>Our Instructors</span> <i></i>
+              </button>
             </Link>
           </div>
         </div>

@@ -37,12 +37,11 @@ const Header = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+            isActive ? "buttonBorder2" : "buttonBorder"
           }
         >
-          Home
+          <span>Home</span>
+          <i></i>
         </NavLink>
       </li>
       {isAdmin ? (
@@ -50,12 +49,11 @@ const Header = () => {
           <NavLink
             to="/dashboard/adminHome"
             className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+              isActive ? "buttonBorder2" : "buttonBorder"
             }
           >
-            Dashboard
+            <span>Dashboard</span>
+            <i></i>
           </NavLink>
         </li>
       ) : isInstructor ? (
@@ -63,12 +61,11 @@ const Header = () => {
           <NavLink
             to="/dashboard/instructorHome"
             className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+              isActive ? "buttonBorder2" : "buttonBorder"
             }
           >
-            Dashboard
+            <span>Dashboard</span>
+            <i></i>
           </NavLink>
         </li>
       ) : (
@@ -76,12 +73,11 @@ const Header = () => {
           <NavLink
             to="/dashboard/studentHome"
             className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-                : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+              isActive ? "buttonBorder2" : "buttonBorder"
             }
           >
-            Dashboard
+            <span>Dashboard</span>
+            <i></i>
           </NavLink>
         </li>
       )}
@@ -89,24 +85,22 @@ const Header = () => {
         <NavLink
           to="/instructors"
           className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+            isActive ? "buttonBorder2" : "buttonBorder"
           }
         >
-          Instructors
+          <span>Instructors</span>
+          <i></i>
         </NavLink>
       </li>
       <li>
         <NavLink
           to="/classes"
           className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-yellow-500 px-4 py-1 rounded-lg"
-              : "hover:border-b-2 hover:border-yellow-500 px-4 py-1 rounded-lg"
+            isActive ? "buttonBorder2" : "buttonBorder"
           }
         >
-          Classes
+          <span>Classes</span>
+          <i></i>
         </NavLink>
       </li>
     </>
@@ -134,7 +128,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="flex flex-col gap-4 menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
+              className="flex flex-col gap-8 menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
             >
               {navItems}
             </ul>
@@ -144,7 +138,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex gap-1">{navItems}</ul>
+          <ul className="flex gap-2">{navItems}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
@@ -160,7 +154,9 @@ const Header = () => {
             </>
           ) : (
             <Link to="login">
-              <button className="button-outline">Login</button>
+              <button className="buttonBorder mr-6">
+                <span>login</span> <i></i>
+              </button>
             </Link>
           )}
         </div>
