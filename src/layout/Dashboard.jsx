@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { FaHome, FaPersonBooth, FaUsers, FaWallet } from "react-icons/fa";
 import { TiContacts } from "react-icons/ti";
 import { SiGoogleclassroom } from "react-icons/si";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

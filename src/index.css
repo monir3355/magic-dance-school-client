@@ -19,6 +19,7 @@
   transition: 0.5s;
 }
 .buttonBorder:hover {
+  background-color: #f3bb2b;
   box-shadow: 0 0 35px #000;
 }
 .buttonBorder::before {

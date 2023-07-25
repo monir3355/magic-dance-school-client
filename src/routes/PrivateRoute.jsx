@@ -5,9 +5,6 @@ import useAuth from "../hooks/useAuth";
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useAuth();
-  if (user) {
-    return children;
-  }
   if (loading) {
     return (
       <div className="text-center mt-40">
@@ -15,6 +12,10 @@ const PrivateRoute = ({ children }) => {
       </div>
     );
   }
+  if (user) {
+    return children;
+  }
+
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
