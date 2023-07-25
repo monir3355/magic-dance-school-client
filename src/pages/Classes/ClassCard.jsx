@@ -88,7 +88,7 @@ const ClassCard = ({ singleClass }) => {
       ref={cardRef}
       className={`${
         available_seats > 0 ? "bg-base-100" : "bg-red-500 text-white"
-      } card card-compact shadow-xl`}
+      } card card-compact shadow-xl relative rounded-none`}
     >
       <figure>
         <img className="h-60 w-full" src={image} alt="" />
@@ -112,16 +112,17 @@ const ClassCard = ({ singleClass }) => {
           <span className="font-semibold">Enrolled Students: </span>{" "}
           {enrolled_students}
         </p>
-        <p>
+        <p className="absolute top-4 right-2 py-1 px-4 bg-yellow-500 text-white rounded-full">
           <span className="font-semibold">Price: </span> ${price}
         </p>
-        <div className="card-actions justify-end">
+        <div className="card-actions w-full">
           <button
             onClick={() => handleSelect(_id)}
             disabled={disabled || isAdmin || isInstructor}
-            className="btn button-primary btn-sm"
+            className="btn buttonBorder w-full"
           >
-            Select
+            <span>Select</span>
+            <i></i>
           </button>
         </div>
       </div>

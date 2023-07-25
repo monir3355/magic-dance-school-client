@@ -11,10 +11,10 @@ const PopularClasses = () => {
   });
 
   return (
-    <div className="pt-12">
+    <div className="pt-8">
       <div className="text-center space-y-3">
         <h2 className="font-semibold text-4xl">Popular Classes</h2>
-        <p className="md:w-10/12 lg:w-2/3 mx-auto">
+        <p>
           Popular classes cater to a wide range of interests and skill sets.
           From fitness to cooking, coding to painting, these classes provide
           valuable learning experiences.{" "}

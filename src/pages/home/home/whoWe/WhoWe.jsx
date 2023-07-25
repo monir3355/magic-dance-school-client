@@ -46,7 +46,10 @@ const WhoWe = () => {
           was to create a welcoming atmosphere and community in which everyone
           feels a sense of belonging.
         </p>
-        <button className="button-primary">About Us</button>
+        <button className="buttonBorder">
+          <span>About Us</span>
+          <i></i>
+        </button>
       </div>
       <div className="md:w-1/2">
         <img className="rounded-lg" src={whoWeImg} alt="" />

@@ -148,8 +148,9 @@ const Header = () => {
                   <img src={user?.photoURL} />
                 </div>
               </label>
-              <button onClick={handleLogout} className="button-primary ml-4">
-                Logout
+              <button onClick={handleLogout} className="buttonBorder">
+                <span>Logout</span>
+                <i></i>
               </button>
             </>
           ) : (
