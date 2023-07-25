@@ -24,7 +24,7 @@ import eventImg11 from "../../../../assets/images/tickets/tickets-wide-05.jpg";
 
 const Events = () => {
   return (
-    <div className="pb-14">
+    <div className="mt-12">
       <div className="text-center space-y-3">
         <h2 className="font-semibold text-4xl">Upcoming Events</h2>
       </div>

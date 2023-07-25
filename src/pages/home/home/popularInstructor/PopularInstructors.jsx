@@ -13,10 +13,10 @@ const PopularInstructors = () => {
     }
   );
   return (
-    <div className="pb-14">
+    <div className="mt-16">
       <div className="text-center space-y-3">
         <h2 className="font-semibold text-4xl">Popular Instructors </h2>
-        <p>
+        <p className="md:w-10/12 lg:w-2/3 mx-auto">
           Popular instructors are revered for their expertise, engaging teaching
           style, and ability to inspire students. Their passion, knowledge, and
           effective communication create an impactful learning experience{" "}
